@@ -1,0 +1,39 @@
+<!-- <div>
+    <div>
+        <label for="latitude">Latitude:</label>
+        <input id="latitude" type="number" [(ngModel)]="latitude" placeholder="Latitude">
+    </div>
+
+    <div>
+        <label for="longitude">Longitude:</label>
+        <input id="longitude" type="number" [(ngModel)]="longitude" placeholder="Longitude">
+    </div>
+    <button (click)="setCenter()">Go</button>
+</div>
+<br> -->
+
+<div class="row" style= "margin-top: 15px; margin-left: 2px">
+    <div class="col-sm-9">
+        <div id="map"></div>
+        <div id="mouse-position"></div>
+        <button (click) = "delete2()">Usuń znaczniki</button>
+    </div>
+
+    <div class="col-sm-3">
+
+        <label for="address" style="margin-right: 2px">Wpisz adres:</label>
+        <input id="address" type="text" [(ngModel)]="address" placeholder="Adres">
+        <button (click)="Getgl()" [disabled]="address == undefined || address == null">Znajdź
+            miejsce</button>
+
+
+        <div *ngIf="list != undefined ">
+            <h3>
+                Znalezione pozycje:
+            </h3>
+            <div *ngFor="let item of list" (click)="SetPin(item.lon, item.lat, item.display_name)">
+                <label> {{item.display_name}}</label>
+            </div>
+        </div>
+    </div>
+</div>
